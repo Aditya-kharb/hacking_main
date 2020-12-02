@@ -1,0 +1,7 @@
+1] touch .gitignore # this will be ignored by git while commitng
+2]git config --global user.name aditya-kharb
+3]git config --global user.email "kharbaditya123@gmail.com"
+4] git init #this will make you folder a github repo
+5]git add . #this push our filser to staging area
+6]git commit -m "{{number of commit}} commit"
+7]git push origin master
