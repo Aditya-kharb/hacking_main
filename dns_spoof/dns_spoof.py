@@ -6,6 +6,8 @@ def sniff_packet(interfaces):
 
 def process_packet(packet):
     if packet.haslayer(http.HTTPRequest):#it will print every information printed through http
+        url = packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path
+        print(url)
         if packet.haslayer(http.Raw):
             load_1 = packet[scapy.Raw].load#it will only show password asn name
             load_2 = load_1.decode("utf")
