@@ -13,7 +13,7 @@ parser.add_option("--v_mac",dest="mac_ad",help="ENter The MAc ADress")
 (values,keys) = parser.parse_args()
 interface = values.interface
 ip_address = values.ip_address
-t_ip = values.target_ip
+t_ip = values.target_ip 
 s_ip = values.spoof_ip
 mac_ad = values.mac_ad
 
