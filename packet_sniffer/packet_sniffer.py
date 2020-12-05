@@ -1,6 +1,8 @@
 import scapy.all as scapy
 from scapy.layers import http
 import optparse
+from colorama import Fore
+
 parser = optparse.OptionParser()
 parser.add_option("--i","--interface",dest="interface",help="ENter INterface")
 (values,keys) = parser.parse_args()
@@ -9,7 +11,7 @@ interface = values.interface
 def sniff_packet(interfaces):
     if interfaces is None:
         interface_input = input("ENter INterface NAme COnnected TO NEtwork")
-        interface = interface_input
+        interface = interface_input 
     scapy.sniff(iface=interfaces,prn=process_packet,store=False)
 
 def process_packet(packet):
@@ -25,4 +27,19 @@ def process_packet(packet):
                 if keyword in load_2:
                     print(load_2)
                     break
+print(
+    Fore.GREEN+'''
+    |-------------| |-----------
+    |             | |
+    |             | |
+    |-------------| |-----------
+    |                          |
+    |                          |                
+    |                          |     
+    |               0----------|                 
+    |
+    |
+    '''
+)
+print("[-]packet sniffing started extract from http")
 sniff_packet(interface)
