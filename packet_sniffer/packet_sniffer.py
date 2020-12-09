@@ -22,7 +22,7 @@ def process_packet(packet):
         if packet.haslayer(http.Raw):
             load_1 = packet[scapy.Raw].load#it will only show password asn name
             load_2 = load_1.decode("utf")
-            keywords = ['username','name','pass','passwors']
+            keywords = ['username','name','pass','passwords']
             for keyword in keywords:
                 if keyword in load_2:
                     print(load_2)

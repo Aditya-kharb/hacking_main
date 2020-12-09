@@ -1,4 +1,4 @@
-# import subprocess as subp
+import subprocess as subp
 # import optparse
 
 # parser = optparse.OptionParser()
@@ -20,3 +20,6 @@
 # def mac_extractor():
 #     print("your mac_address is :"+see_out[222:239].decode("utf"))
 # mac_extractor()
+resol = subp.check_output(['ifconfig','wlan0'])
+resol_d = resol.decode("utf")
+print(type(resol_d))
